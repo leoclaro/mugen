@@ -1,0 +1,36 @@
+Coding level: Advanced
+
+Word of warning. Doing this makes use of a bug in mugens code. It may be fixed by elecbyte at some point at which point it will not work. Hopefully they'll give us an actual poison by then
+
+This code relies on having a helper use a reversaldef on p2, once that is complete the helper will never lose their target.
+
+Step 1
+Hit player 2 with something, doesn't matter what it is. Make sure that you put them into a custom state
+
+Step 2
+Create a custom animation for player 2. Should look like a normal hit animation. However make sure you add a RED clsn1 on it.
+
+Activate a hitdef inside this custom state. 0 damage, animtype = none, invisible spark etc etc. Anything and everything you can do to make it look like nothing happened.
+
+Use LifeAdd to make p2 take damage from the original hit. This state is movetype = A rather than movetype = H
+
+Step 3
+When p2 is hit, spawn a helper. No clsn2 (blue) boxes. Use a clsn1 (red) box however. The helper should sit exactly, or as near as possible to p2's clsn1
+
+Step 4
+Helper when created has a reversaldef set, this reversaldef should apply to player 2's hitdef, so it should be reversing whatever attributes p2 used. Don't use p1 or p2stateno here, the helper doesn't actually need to change state for this to work, it just has to have its reversaldef activated
+
+Step 5
+Helpers state must be A to start with. Set to I as soon as the reversaldef takes effect. However it doesn't matter if p1 hits p2 from this point on, the helper will retain p2 as a target, so we can use targetlifeadd to drain their health without putting them in a hitstate over and over
+
+[State TargetLifeAdd]
+Type = TargetLifeAdd
+trigger1 = 1
+value = -20
+persistent = 20
+
+Your opponent is now poisoned and their life can be drained on command, without hitting them. Generally a good idea to give the helper a timer and not have the poison do THAT much damage because it's a bit unfair if it never stops. Also, this allows you to turn them green with palfx and have it last for the duration of the poison as well. 
+
+Sadly, this will not work on opponents with super armour. The way super armour is normally coded you will not be able to place them in a custom state.
+
+Happy to answer some questions, or make this a bit clearer if it doesn't make sense. This is absolutely not for new players.
