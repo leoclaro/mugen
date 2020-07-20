@@ -1,17 +1,15 @@
 {  
-  "final": {
-    "chave": {
-      "placar": "Juventude 1x1 América-RN"
-    }
-  },
-  "semifinais": {
-    "chave-1": "Juventude 1x1 América-RN",
-    "chave-2": "Juventude 1x1 América-RN"
-  },
-  "quartasfinais": {
-	"chave-1": "Juventude 1x1 América-RN",
-  "chave-2": "Juventude 1x1 América-RN",
-	"chave-3": "Juventude 1x1 América-RN",
-	"chave-4": "Juventude 1x1 América-RN"
-  }
+	"campeao": "Juventude",
+	"vice": "América-RN"    
+	},
+	"semifinais": {
+		"chave1": "Juventude 1x1 América-RN",
+		"chave2": "Juventude 1x1 América-RN"
+	},
+	"quartasfinais": {
+		"chave1": "Juventude 1x1 América-RN",
+		"chave2": "Juventude 1x1 América-RN",
+		"chave3": "Juventude 1x1 América-RN",
+		"chave4": "Juventude 1x1 América-RN"
+	}
 }
